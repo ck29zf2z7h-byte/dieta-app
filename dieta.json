@@ -1,0 +1,190 @@
+{
+  "nota": "Fonte: piano alimentare DS Trainer. Le grammature di riso, pasta, avena e cous cous sono da considerare a crudo.",
+  "giorni": [
+    {
+      "nome": "Lunedì",
+      "pasti": [
+        { "nome": "Colazione", "alimenti": ["200 ml latte scremato", "50 g fiocchi d'avena", "1 frutto"] },
+        { "nome": "Spuntino", "alimenti": ["Yogurt bianco magro", "2 gallette di riso"] },
+        { "nome": "Pranzo", "alimenti": ["80 g riso basmati", "100 g pollo/tacchino", "Zucchine o insalata abbondante", "10 g olio EVO"] },
+        { "nome": "Spuntino", "alimenti": ["1 frutto", "3 gallette"] },
+        { "nome": "Cena", "alimenti": ["250 g patate", "2 uova", "Verdure abbondanti", "10 g olio EVO"] }
+      ]
+    },
+    {
+      "nome": "Martedì",
+      "pasti": [
+        { "nome": "Colazione", "alimenti": ["170 g yogurt greco magro", "40 g avena", "Frutti di bosco"] },
+        { "nome": "Spuntino", "alimenti": ["1 frutto"] },
+        { "nome": "Pranzo", "alimenti": ["70 g riso basmati", "100 g pollo/tacchino", "Verdure", "10 g EVO"] },
+        { "nome": "Spuntino", "alimenti": ["Yogurt magro", "2 gallette"] },
+        { "nome": "Cena", "alimenti": ["150 g patate", "100 g formaggio fresco magro/fiocchi di latte", "Verdure", "10 g EVO"] }
+      ]
+    },
+    {
+      "nome": "Mercoledì",
+      "pasti": [
+        { "nome": "Colazione", "alimenti": ["Yogurt bianco magro", "30 g avena"] },
+        { "nome": "Spuntino", "alimenti": ["1 frutto"] },
+        { "nome": "Pranzo", "alimenti": ["100 g pollo/tacchino", "Enorme porzione di verdure", "40 g pane", "15 g EVO"] },
+        { "nome": "Spuntino", "alimenti": ["Yogurt magro"] },
+        { "nome": "Cena", "alimenti": ["2 uova", "200–300 g verdure", "100 g patate", "15 g EVO"] }
+      ]
+    },
+    {
+      "nome": "Giovedì",
+      "pasti": [
+        { "nome": "Colazione", "alimenti": ["200 ml latte scremato", "50 g avena", "Banana"] },
+        { "nome": "Spuntino", "alimenti": ["Yogurt magro", "2 gallette"] },
+        { "nome": "Pranzo", "alimenti": ["80 g pasta o riso", "100 g pollo/tacchino", "Verdure", "10 g EVO"] },
+        { "nome": "Spuntino", "alimenti": ["1 frutto", "3 gallette"] },
+        { "nome": "Cena", "alimenti": ["250 g patate", "100 g formaggio fresco magro", "Verdure", "10 g EVO"] }
+      ]
+    },
+    {
+      "nome": "Venerdì",
+      "pasti": [
+        { "nome": "Colazione", "alimenti": ["Yogurt greco magro", "40 g avena", "Frutta"] },
+        { "nome": "Spuntino", "alimenti": ["1 frutto"] },
+        { "nome": "Pranzo", "alimenti": ["70 g riso", "2 uova", "Verdure", "10 g EVO"] },
+        { "nome": "Spuntino", "alimenti": ["Yogurt magro", "2 gallette"] },
+        { "nome": "Cena", "alimenti": ["100 g pollo/tacchino", "150 g patate", "Verdure abbondanti", "10 g EVO"] }
+      ]
+    },
+    {
+      "nome": "Sabato",
+      "pasti": [
+        { "nome": "Colazione", "alimenti": ["Latte scremato", "50 g avena", "Frutta"] },
+        { "nome": "Spuntino", "alimenti": ["Yogurt magro", "2 gallette"] },
+        { "nome": "Pranzo", "alimenti": ["80 g pasta", "Verdure", "100 g formaggio fresco magro", "10 g EVO"] },
+        { "nome": "Spuntino", "alimenti": ["Frutto", "3 gallette"] },
+        { "nome": "Cena", "alimenti": ["250 g patate o 70 g riso", "100 g pollo/tacchino", "Verdure", "10 g EVO"] }
+      ]
+    },
+    {
+      "nome": "Domenica",
+      "pasti": [
+        { "nome": "Colazione", "alimenti": ["Yogurt magro", "30 g avena"] },
+        { "nome": "Spuntino", "alimenti": ["Frutto"] },
+        { "nome": "Pranzo", "alimenti": ["2 uova", "40 g pane", "Verdure abbondanti", "15 g EVO"] },
+        { "nome": "Spuntino", "alimenti": ["Yogurt magro"] },
+        { "nome": "Cena", "alimenti": ["100 g formaggio fresco magro", "Verdure abbondanti", "100–150 g patate", "15 g EVO"] }
+      ]
+    }
+  ],
+  "emergenza": {
+    "titolo": "PASTO D'EMERGENZA | TURNO",
+    "introduzione": "Da utilizzare in sostituzione del pranzo o della cena quando il turno non permette di consumare il pasto previsto. Scegliere UNA sola alternativa.",
+    "obiettivo": "OBIETTIVO: praticità, controllo calorico e quota proteica moderata, senza trasformare l'emergenza in un pasto extra.",
+    "colonne": {
+      "alternativa": "ALTERNATIVA",
+      "alimenti": "ALIMENTI E QUANTITÀ",
+      "quandoUsarlo": "QUANDO USARLO"
+    },
+    "righe": [
+      {
+        "alternativa": "1. Panino leggero",
+        "alimenti": ["Pane 80 g", "Fesa di tacchino 60–70 g", "Formaggio fresco magro 50 g", "Verdure"],
+        "quandoUsarlo": "Quando hai accesso a un bar o puoi portare un pasto semplice."
+      },
+      {
+        "alternativa": "2. Piadina rapida",
+        "alimenti": ["Piadina 70–80 g", "Fiocchi di latte 100 g", "Verdure o rucola"],
+        "quandoUsarlo": "Quando serve un pasto pratico, compatto e veloce."
+      },
+      {
+        "alternativa": "3. Riso pronto",
+        "alimenti": ["Riso basmati pronto 125 g", "2 uova", "Verdure", "Olio EVO 10 g"],
+        "quandoUsarlo": "Quando puoi usare un contenitore o acquistare prodotti pronti."
+      },
+      {
+        "alternativa": "4. Pasto freddo",
+        "alimenti": ["Pane 70–80 g", "Fiocchi di latte 100–120 g", "Verdure", "Olio EVO 10 g"],
+        "quandoUsarlo": "Quando non hai possibilità di riscaldare il pasto."
+      },
+      {
+        "alternativa": "5. Supermercato / Bar",
+        "alimenti": ["Pane 70–80 g", "Yogurt greco bianco 170 g", "1 frutto"],
+        "quandoUsarlo": "Quando devi comporre il pasto acquistando al momento."
+      },
+      {
+        "alternativa": "6. Zero tempo",
+        "alimenti": ["Skyr o yogurt greco 170–200 g", "Gallette di riso 4–5", "1 frutto"],
+        "quandoUsarlo": "Quando hai pochissimi minuti e serve una soluzione completa."
+      },
+      {
+        "alternativa": "7. Emergenza assoluta",
+        "alimenti": ["Yogurt greco o Skyr 200 g", "Fiocchi d'avena 30–40 g", "1 frutto"],
+        "quandoUsarlo": "Ultima soluzione quando non è possibile consumare un pasto tradizionale."
+      }
+    ],
+    "regola": "REGOLA DS: è un pasto sostitutivo, non uno spuntino. Il pasto saltato non va recuperato successivamente."
+  },
+  "ceneFuori": {
+    "titolo": "CENE & USCITE FUORI | GUIDA PREMIUM",
+    "obiettivo": "OBIETTIVO: mantenere la cena sociale compatibile con il dimagrimento, sostituendo il pasto previsto senza trasformarlo in un pasto libero aggiuntivo.",
+    "colonne": {
+      "situazione": "SITUAZIONE",
+      "sceltaConsigliata": "SCELTA CONSIGLIATA",
+      "daLimitare": "DA LIMITARE"
+    },
+    "righe": [
+      {
+        "situazione": "PIZZERIA",
+        "sceltaConsigliata": "Pizza marinara oppure ortolana. Acqua come bevanda principale.",
+        "daLimitare": "Salumi, acciughe, fritti, pizza molto farcita, birra, dolci."
+      },
+      {
+        "situazione": "RISTORANTE",
+        "sceltaConsigliata": "Primo semplice con pasta/riso e verdure; contorno di verdure.",
+        "daLimitare": "Antipasti di salumi, grosse porzioni di carne, frattaglie, salse."
+      },
+      {
+        "situazione": "STEAKHOUSE",
+        "sceltaConsigliata": "Carne bianca 100–120 g + verdure + piccola quota di pane o patate.",
+        "daLimitare": "Bistecche molto abbondanti, carne rossa frequente, bacon, burger doppi."
+      },
+      {
+        "situazione": "SUSHI",
+        "sceltaConsigliata": "Quota controllata di riso, sushi vegetariano e piccola quota di pesce.",
+        "daLimitare": "Grandi quantità di sashimi, crostacei, tempura, salse zuccherate, alcol."
+      },
+      {
+        "situazione": "PUB",
+        "sceltaConsigliata": "Panino semplice con verdure e piccola quota di pollo/tacchino o alternativa vegetariana semplice.",
+        "daLimitare": "Burger doppi, bacon, salumi, fritti, birra."
+      },
+      {
+        "situazione": "RISTORANTE DI PESCE",
+        "sceltaConsigliata": "Pasta/riso con verdure oppure piccola porzione di pesce + contorno.",
+        "daLimitare": "Abbuffate di crostacei/molluschi, sardine/acciughe, grandi porzioni di pesce."
+      },
+      {
+        "situazione": "BAR / EMERGENZA",
+        "sceltaConsigliata": "Panino piccolo con formaggio fresco magro + yogurt greco/Skyr.",
+        "daLimitare": "Panini ricchi di salumi, rustici, snack e bibite zuccherate."
+      },
+      {
+        "situazione": "APERITIVO",
+        "sceltaConsigliata": "Piccola quota di pane/focaccia + formaggio fresco + verdure. Acqua.",
+        "daLimitare": "Salumi, fritti, patatine, cocktail zuccherati e birra."
+      },
+      {
+        "situazione": "PASTO LIBERO",
+        "sceltaConsigliata": "Un singolo pasto più flessibile, con porzioni ragionevoli e buona idratazione.",
+        "daLimitare": "Trasformarlo in una giornata libera o associarlo a molto alcol."
+      }
+    ],
+    "idratazione": "IDRATAZIONE PRIORITARIA • Evitare disidratazione, digiuni prolungati e dimagrimenti estremamente rapidi.",
+    "regole": {
+      "titolo": "REGOLE DS TRAINER PER L’USCITA",
+      "elenco": [
+        "La cena fuori sostituisce la cena prevista dal piano: non si somma ad essa.",
+        "Scegli una sola fonte principale di carboidrati: pane, patate, riso, pasta o pizza.",
+        "Mantieni sempre una fonte proteica evidente e limita salse e condimenti non quantificabili.",
+        "Se l’uscita è programmata, distribuisci i grassi con maggiore controllo nei pasti precedenti.",
+        "Acqua come bevanda principale; l’alcol rende più difficile mantenere il target calorico."
+      ]
+    }
+  }
+}

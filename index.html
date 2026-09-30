@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>La mia dieta</title>
+
+  <!-- Impostazioni per "Aggiungi a schermata Home" su iPhone -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Dieta">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#f6f7f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141815" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
+
+  <style>
+    /* Colori del tema chiaro */
+    :root {
+      color-scheme: light dark;
+      --sfondo: #f6f7f4;
+      --carta: #ffffff;
+      --testo: #1c211d;
+      --testo-soft: #5b645d;
+      --bordo: #e2e5df;
+      --accento: #2f7d4f;
+      --accento-testo: #ffffff;
+      --accento-soft: #e3f1e8;
+      --altezza-barra: 4.25rem;
+    }
+    /* Colori del tema scuro: si attivano da soli se l'iPhone è in modalità scura */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --sfondo: #141815;
+        --carta: #1e2420;
+        --testo: #eef1ee;
+        --testo-soft: #a3ada5;
+        --bordo: #2e3630;
+        --accento: #5cc285;
+        --accento-testo: #0d1a12;
+        --accento-soft: #21362a;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    [hidden] { display: none !important; }
+
+    body {
+      margin: 0;
+      background: var(--sfondo);
+      color: var(--testo);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+      font-size: 1.2rem;           /* ~19px: testo grande e leggibile */
+      line-height: 1.5;
+      /* Spazio per notch e barra in basso dell'iPhone */
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) 0 env(safe-area-inset-left);
+    }
+
+    header {
+      padding: 1rem 1.25rem 0.5rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+    .data-oggi {
+      margin: 0.25rem 0 0;
+      color: var(--testo-soft);
+      font-size: 1.05rem;
+    }
+
+    /* Barra dei giorni, scorrevole in orizzontale */
+    .barra-giorni {
+      position: sticky;
+      top: env(safe-area-inset-top);
+      z-index: 1;
+      background: var(--sfondo);
+    }
+    /* Striscia fissa sotto il notch, così il testo non ci scorre dietro */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: env(safe-area-inset-top);
+      background: var(--sfondo);
+      z-index: 2;
+    }
+    .giorni {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.75rem 1.25rem;
+      margin: 0;
+      list-style: none;
+      scrollbar-width: none;
+    }
+    .giorni::-webkit-scrollbar { display: none; }
+
+    .giorni button {
+      font: inherit;
+      font-size: 1.05rem;
+      font-weight: 600;
+      min-width: 3.6rem;
+      min-height: 3.4rem;          /* area di tocco comoda */
+      padding: 0.35rem 0.75rem;
+      border-radius: 1rem;
+      border: 2px solid var(--bordo);
+      background: var(--carta);
+      color: var(--testo);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.1;
+      cursor: pointer;
+    }
+    .giorni button small {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accento);
+    }
+    /* Giorno di oggi: bordo colorato */
+    .giorni button.oggi { border-color: var(--accento); }
+    /* Giorno selezionato: pieno */
+    .giorni button[aria-pressed="true"] {
+      background: var(--accento);
+      border-color: var(--accento);
+      color: var(--accento-testo);
+    }
+    .giorni button[aria-pressed="true"] small { color: var(--accento-testo); }
+
+    main {
+      padding: 0.5rem 1.25rem 2rem;
+      max-width: 40rem;
+      margin: 0 auto;
+      /* Spazio perché la barra in basso non copra l'ultimo contenuto */
+      padding-bottom: calc(var(--altezza-barra) + env(safe-area-inset-bottom) + 1.5rem);
+    }
+
+    .titolo-giorno {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      font-size: 1.6rem;
+      margin: 0.5rem 0 1rem;
+    }
+    .badge {
+      font-size: 0.9rem;
+      font-weight: 700;
+      background: var(--accento-soft);
+      color: var(--accento);
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .pasto, .scheda {
+      background: var(--carta);
+      border: 1px solid var(--bordo);
+      border-radius: 1.1rem;
+      padding: 1rem 1.2rem;
+      margin-bottom: 0.9rem;
+    }
+    .pasto h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.3rem;
+    }
+    .pasto ul, .scheda ul, .regole ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+    .pasto li, .scheda li, .regole li { margin: 0.2rem 0; }
+
+    /* Sezioni Emergenza e Cene fuori */
+    .titolo-sezione {
+      font-size: 1.45rem;
+      line-height: 1.25;
+      margin: 0.5rem 0 0.25rem;
+    }
+    .sottotitolo {
+      margin: 0 0 1rem;
+      color: var(--accento);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .testo { margin: 0 0 1rem; }
+    .riquadro {
+      background: var(--accento-soft);
+      border-left: 4px solid var(--accento);
+      border-radius: 0.8rem;
+      padding: 0.9rem 1.1rem;
+      margin: 0 0 1.2rem;
+      font-weight: 600;
+    }
+    /* Una scheda per ogni riga della tabella del PDF */
+    .scheda .colonna + .colonna { margin-top: 0.8rem; }
+    .scheda .etichetta {
+      margin: 0 0 0.15rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--testo-soft);
+    }
+    .scheda .valore { margin: 0; }
+    .scheda .colonna:first-child .valore {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    .nota-pdf {
+      color: var(--testo-soft);
+      font-style: italic;
+      font-size: 1rem;
+      margin: 0 0 1.2rem;
+    }
+    .regole h3 {
+      font-size: 1.2rem;
+      color: var(--accento);
+      margin: 0 0 0.5rem;
+    }
+
+    .messaggio {
+      background: var(--carta);
+      border: 1px solid var(--bordo);
+      border-radius: 1.1rem;
+      padding: 1.2rem;
+      color: var(--testo-soft);
+    }
+    .nota {
+      color: var(--testo-soft);
+      font-size: 0.95rem;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    /* Barra di navigazione in basso, comoda con il pollice */
+    .barra-sezioni {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 3;
+      display: flex;
+      background: var(--carta);
+      border-top: 1px solid var(--bordo);
+      padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    }
+    .barra-sezioni a {
+      flex: 1;
+      min-height: var(--altezza-barra);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.1rem;
+      text-decoration: none;
+      color: var(--testo-soft);
+      font-size: 0.85rem;
+      font-weight: 600;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .barra-sezioni .icona { font-size: 1.5rem; line-height: 1; }
+    .barra-sezioni a[aria-current="page"] { color: var(--accento); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>La mia dieta</h1>
+    <p class="data-oggi" id="data-oggi"></p>
+  </header>
+
+  <!-- Sezione 1: la settimana -->
+  <div id="vista-settimana">
+    <nav class="barra-giorni" aria-label="Giorni della settimana">
+      <ul class="giorni" id="giorni"></ul>
+    </nav>
+    <main id="contenuto">
+      <p class="messaggio">Caricamento…</p>
+    </main>
+  </div>
+
+  <!-- Sezione 2: pasti d'emergenza (pagina 8 del PDF) -->
+  <main id="vista-emergenza" hidden></main>
+
+  <!-- Sezione 3: cene fuori (pagina 9 del PDF) -->
+  <main id="vista-cene-fuori" hidden></main>
+
+  <nav class="barra-sezioni" aria-label="Sezioni">
+    <a href="#settimana"><span class="icona" aria-hidden="true">📅</span>Settimana</a>
+    <a href="#emergenza"><span class="icona" aria-hidden="true">🚨</span>Emergenza</a>
+    <a href="#cene-fuori"><span class="icona" aria-hidden="true">🍴</span>Cene fuori</a>
+  </nav>
+
+  <script>
+    // Sigle dei giorni, da lunedì a domenica
+    const SIGLE = ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"];
+    const ICONE = { Colazione: "☕", Spuntino: "🍎", Pranzo: "🍝", Merenda: "🥛", Cena: "🍽️" };
+
+    // Le tre sezioni: il nome nell'indirizzo (#...) e il blocco da mostrare
+    const SEZIONI = {
+      "settimana": document.getElementById("vista-settimana"),
+      "emergenza": document.getElementById("vista-emergenza"),
+      "cene-fuori": document.getElementById("vista-cene-fuori")
+    };
+
+    // JavaScript conta i giorni da domenica (0) a sabato (6).
+    // Qui li convertiamo in 0 = lunedì ... 6 = domenica.
+    const indiceOggi = (new Date().getDay() + 6) % 7;
+
+    const elGiorni = document.getElementById("giorni");
+    const elContenuto = document.getElementById("contenuto");
+
+    document.getElementById("data-oggi").textContent =
+      new Date().toLocaleDateString("it-IT", { weekday: "long", day: "numeric", month: "long" });
+
+    // Crea un elemento HTML con testo, in modo sicuro
+    function crea(tag, testo, classe) {
+      const el = document.createElement(tag);
+      if (testo) el.textContent = testo;
+      if (classe) el.className = classe;
+      return el;
+    }
+
+    // Crea un elenco puntato da una lista di testi
+    function creaLista(voci) {
+      const lista = crea("ul");
+      voci.forEach((v) => lista.append(crea("li", v)));
+      return lista;
+    }
+
+    // ---------- Sezione Settimana ----------
+
+    function mostraGiorno(dati, indice) {
+      // Aggiorna quale pulsante risulta selezionato
+      elGiorni.querySelectorAll("button").forEach((b, i) => {
+        b.setAttribute("aria-pressed", i === indice ? "true" : "false");
+      });
+
+      const giorno = dati.giorni[indice];
+      elContenuto.replaceChildren();
+
+      const titolo = crea("h2", giorno.nome, "titolo-giorno");
+      if (indice === indiceOggi) titolo.append(crea("span", "Oggi", "badge"));
+      elContenuto.append(titolo);
+
+      giorno.pasti.forEach((pasto) => {
+        const card = crea("section", null, "pasto");
+        card.append(crea("h3", (ICONE[pasto.nome] || "•") + " " + pasto.nome));
+        card.append(creaLista(pasto.alimenti));
+        elContenuto.append(card);
+      });
+
+      if (dati.nota) elContenuto.append(crea("p", dati.nota, "nota"));
+    }
+
+    function creaBarraGiorni(dati) {
+      dati.giorni.forEach((giorno, i) => {
+        const li = crea("li");
+        const btn = crea("button");
+        btn.type = "button";
+        btn.setAttribute("aria-label", giorno.nome);
+        if (i === indiceOggi) {
+          btn.classList.add("oggi");
+          btn.append(crea("small", "Oggi"));
+        }
+        btn.append(document.createTextNode(SIGLE[i]));
+        btn.addEventListener("click", () => mostraGiorno(dati, i));
+        li.append(btn);
+        elGiorni.append(li);
+      });
+    }
+
+    // ---------- Sezioni Emergenza e Cene fuori ----------
+
+    // Trasforma una tabella del PDF in schede: una scheda per riga,
+    // con le intestazioni delle colonne usate come etichette.
+    function creaSchede(colonne, righe) {
+      const frammento = document.createDocumentFragment();
+      righe.forEach((riga) => {
+        const scheda = crea("article", null, "scheda");
+        Object.keys(colonne).forEach((chiave) => {
+          const colonna = crea("div", null, "colonna");
+          colonna.append(crea("p", colonne[chiave], "etichetta"));
+          const valore = riga[chiave];
+          colonna.append(Array.isArray(valore) ? creaLista(valore) : crea("p", valore, "valore"));
+          scheda.append(colonna);
+        });
+        frammento.append(scheda);
+      });
+      return frammento;
+    }
+
+    // Come crea(), ma se il testo manca nel JSON non crea nulla
+    function creaSePresente(tag, testo, classe) {
+      return testo ? [crea(tag, testo, classe)] : [];
+    }
+
+    function creaEmergenza(e) {
+      const el = SEZIONI["emergenza"];
+      el.replaceChildren(
+        ...creaSePresente("h2", e.titolo, "titolo-sezione"),
+        ...creaSePresente("p", e.sottotitolo, "sottotitolo"),
+        ...creaSePresente("p", e.introduzione, "testo"),
+        ...creaSePresente("p", e.obiettivo, "riquadro"),
+        creaSchede(e.colonne, e.righe),
+        ...creaSePresente("p", e.regola, "riquadro")
+      );
+    }
+
+    function creaCeneFuori(c) {
+      const el = SEZIONI["cene-fuori"];
+      el.replaceChildren(
+        ...creaSePresente("h2", c.titolo, "titolo-sezione"),
+        ...creaSePresente("p", c.sottotitolo, "sottotitolo"),
+        ...creaSePresente("p", c.obiettivo, "riquadro"),
+        creaSchede(c.colonne, c.righe),
+        ...creaSePresente("p", c.idratazione, "riquadro"),
+        ...creaSePresente("p", c.nota, "nota-pdf")
+      );
+      if (c.regole) {
+        const regole = crea("section", null, "regole");
+        regole.append(crea("h3", c.regole.titolo), creaLista(c.regole.elenco));
+        el.append(regole);
+      }
+    }
+
+    // ---------- Navigazione tra le sezioni ----------
+
+    function mostraSezione() {
+      const nome = location.hash.slice(1);
+      const attiva = SEZIONI[nome] ? nome : "settimana";
+      Object.entries(SEZIONI).forEach(([chiave, el]) => { el.hidden = chiave !== attiva; });
+      document.querySelectorAll(".barra-sezioni a").forEach((a) => {
+        if (a.getAttribute("href") === "#" + attiva) a.setAttribute("aria-current", "page");
+        else a.removeAttribute("aria-current");
+      });
+      window.scrollTo(0, 0);
+      if (attiva === "settimana") {
+        // Porta in vista il pulsante di oggi
+        elGiorni.children[indiceOggi]?.scrollIntoView({ inline: "center", block: "nearest" });
+      }
+    }
+    window.addEventListener("hashchange", mostraSezione);
+    mostraSezione();
+
+    // Legge i dati da dieta.json
+    fetch("dieta.json", { cache: "no-cache" })
+      .then((risposta) => {
+        if (!risposta.ok) throw new Error("HTTP " + risposta.status);
+        return risposta.json();
+      })
+      .then((dati) => {
+        creaBarraGiorni(dati);
+        mostraGiorno(dati, indiceOggi);
+        if (dati.emergenza) creaEmergenza(dati.emergenza);
+        if (dati.ceneFuori) creaCeneFuori(dati.ceneFuori);
+        mostraSezione();
+      })
+      .catch((errore) => {
+        const testo = "Non riesco a leggere dieta.json. Se hai aperto il file con un doppio clic, " +
+          "avvia un server locale (vedi istruzioni). Dettaglio: " + errore.message;
+        elContenuto.replaceChildren(crea("p", testo, "messaggio"));
+        SEZIONI["emergenza"].replaceChildren(crea("p", testo, "messaggio"));
+        SEZIONI["cene-fuori"].replaceChildren(crea("p", testo, "messaggio"));
+      });
+  </script>
+</body>
+</html>

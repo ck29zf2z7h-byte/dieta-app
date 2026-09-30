@@ -1,0 +1,20 @@
+{
+  "name": "La mia dieta",
+  "short_name": "Dieta",
+  "description": "La mia dieta settimanale",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6f7f4",
+  "theme_color": "#2f7d4f",
+  "lang": "it",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
