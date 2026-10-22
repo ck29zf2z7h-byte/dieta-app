@@ -4,71 +4,71 @@
     {
       "nome": "Lunedì",
       "pasti": [
-        { "nome": "Colazione", "alimenti": ["200 ml latte scremato", "50 g fiocchi d'avena", "1 frutto"] },
-        { "nome": "Spuntino", "alimenti": ["Yogurt bianco magro", "2 gallette di riso"] },
-        { "nome": "Pranzo", "alimenti": ["80 g riso basmati", "100 g pollo/tacchino", "Zucchine o insalata abbondante", "10 g olio EVO"] },
-        { "nome": "Spuntino", "alimenti": ["1 frutto", "3 gallette"] },
-        { "nome": "Cena", "alimenti": ["250 g patate", "2 uova", "Verdure abbondanti", "10 g olio EVO"] }
+        { "nome": "Colazione", "alimenti": ["Latte parzialmente scremato 250 ml", "Pane integrale 90 g", "Confettura senza zuccheri aggiunti 25 g"] },
+        { "nome": "Spuntino", "alimenti": ["1 mela 180 g", "Mandorle 20 g"] },
+        { "nome": "Pranzo", "alimenti": ["Pasta integrale 110 g", "Ricotta vaccina 100 g", "Zucchine 250 g", "Olio EVO 15 g"] },
+        { "nome": "Merenda", "alimenti": ["Yogurt bianco magro 125 g", "1 banana 120 g"] },
+        { "nome": "Cena", "alimenti": ["Pane integrale 110 g", "2 uova", "Insalata 250 g", "Olio EVO 20 g"] }
       ]
     },
     {
       "nome": "Martedì",
       "pasti": [
-        { "nome": "Colazione", "alimenti": ["170 g yogurt greco magro", "40 g avena", "Frutti di bosco"] },
-        { "nome": "Spuntino", "alimenti": ["1 frutto"] },
-        { "nome": "Pranzo", "alimenti": ["70 g riso basmati", "100 g pollo/tacchino", "Verdure", "10 g EVO"] },
-        { "nome": "Spuntino", "alimenti": ["Yogurt magro", "2 gallette"] },
-        { "nome": "Cena", "alimenti": ["150 g patate", "100 g formaggio fresco magro/fiocchi di latte", "Verdure", "10 g EVO"] }
+        { "nome": "Colazione", "alimenti": ["Yogurt greco bianco 0% 170 g", "Cereali integrali 50 g", "1 kiwi 120 g"] },
+        { "nome": "Spuntino", "alimenti": ["1 pera 180 g", "Noci 20 g"] },
+        { "nome": "Pranzo", "alimenti": ["Pane integrale 80 g", "Ceci cotti 150 g", "Pomodori 250 g", "Olio EVO 20 g"] },
+        { "nome": "Merenda", "alimenti": ["Latte parzialmente scremato 200 ml", "2 gallette di riso (20 g)"] },
+        { "nome": "Cena", "alimenti": ["Patate lesse o al microonde 300 g", "Fiocchi di latte 150 g", "Carote 250 g", "Olio EVO 20 g"] }
       ]
     },
     {
       "nome": "Mercoledì",
       "pasti": [
-        { "nome": "Colazione", "alimenti": ["Yogurt bianco magro", "30 g avena"] },
-        { "nome": "Spuntino", "alimenti": ["1 frutto"] },
-        { "nome": "Pranzo", "alimenti": ["100 g pollo/tacchino", "Enorme porzione di verdure", "40 g pane", "15 g EVO"] },
-        { "nome": "Spuntino", "alimenti": ["Yogurt magro"] },
-        { "nome": "Cena", "alimenti": ["2 uova", "200–300 g verdure", "100 g patate", "15 g EVO"] }
+        { "nome": "Colazione", "alimenti": ["Latte parzialmente scremato 250 ml", "Cereali semplici 80 g", "1 kiwi 120 g"] },
+        { "nome": "Spuntino", "alimenti": ["1 banana 120 g", "Mandorle 20 g"] },
+        { "nome": "Pranzo", "alimenti": ["Riso basmati 110 g", "Lenticchie cotte 150 g", "Zucchine 250 g", "Olio EVO 15 g"] },
+        { "nome": "Merenda", "alimenti": ["Yogurt bianco magro 125 g", "Pane integrale 50 g"] },
+        { "nome": "Cena", "alimenti": ["Pane integrale 100 g", "Mozzarella vaccina 125 g", "Pomodori 250 g", "Olio EVO 15 g"] }
       ]
     },
     {
       "nome": "Giovedì",
       "pasti": [
-        { "nome": "Colazione", "alimenti": ["200 ml latte scremato", "50 g avena", "Banana"] },
-        { "nome": "Spuntino", "alimenti": ["Yogurt magro", "2 gallette"] },
-        { "nome": "Pranzo", "alimenti": ["80 g pasta o riso", "100 g pollo/tacchino", "Verdure", "10 g EVO"] },
-        { "nome": "Spuntino", "alimenti": ["1 frutto", "3 gallette"] },
-        { "nome": "Cena", "alimenti": ["250 g patate", "100 g formaggio fresco magro", "Verdure", "10 g EVO"] }
+        { "nome": "Colazione", "alimenti": ["Pane integrale 70 g", "Ricotta vaccina 100 g", "Confettura 20 g"] },
+        { "nome": "Spuntino", "alimenti": ["1 arancia 200 g", "Mandorle 20 g"] },
+        { "nome": "Pranzo", "alimenti": ["Farro 70 g", "Fagioli cannellini cotti 150 g", "Carote 250 g", "Olio EVO 20 g"] },
+        { "nome": "Merenda", "alimenti": ["Yogurt bianco magro 125 g", "1 mela 180 g"] },
+        { "nome": "Cena", "alimenti": ["Pane integrale 90 g", "2 uova", "Verdure grigliate 300 g", "Olio EVO 20 g"] }
       ]
     },
     {
       "nome": "Venerdì",
       "pasti": [
-        { "nome": "Colazione", "alimenti": ["Yogurt greco magro", "40 g avena", "Frutta"] },
-        { "nome": "Spuntino", "alimenti": ["1 frutto"] },
-        { "nome": "Pranzo", "alimenti": ["70 g riso", "2 uova", "Verdure", "10 g EVO"] },
-        { "nome": "Spuntino", "alimenti": ["Yogurt magro", "2 gallette"] },
-        { "nome": "Cena", "alimenti": ["100 g pollo/tacchino", "150 g patate", "Verdure abbondanti", "10 g EVO"] }
+        { "nome": "Colazione", "alimenti": ["Latte parzialmente scremato 250 ml", "Fette biscottate integrali 90 g", "Confettura 25 g"] },
+        { "nome": "Spuntino", "alimenti": ["1 pera 180 g", "Noci 20 g"] },
+        { "nome": "Pranzo", "alimenti": ["Pasta 110 g", "Passata di pomodoro 150 g", "Ricotta vaccina 120 g", "Olio EVO 15 g", "Insalata 200 g"] },
+        { "nome": "Merenda", "alimenti": ["Yogurt greco 0% 170 g", "1 banana 120 g"] },
+        { "nome": "Cena", "alimenti": ["Patate 400 g", "Petto di pollo 120 g", "Zucchine 250 g", "Olio EVO 20 g", "Pane 50 g"] }
       ]
     },
     {
       "nome": "Sabato",
       "pasti": [
-        { "nome": "Colazione", "alimenti": ["Latte scremato", "50 g avena", "Frutta"] },
-        { "nome": "Spuntino", "alimenti": ["Yogurt magro", "2 gallette"] },
-        { "nome": "Pranzo", "alimenti": ["80 g pasta", "Verdure", "100 g formaggio fresco magro", "10 g EVO"] },
-        { "nome": "Spuntino", "alimenti": ["Frutto", "3 gallette"] },
-        { "nome": "Cena", "alimenti": ["250 g patate o 70 g riso", "100 g pollo/tacchino", "Verdure", "10 g EVO"] }
+        { "nome": "Colazione", "alimenti": ["Yogurt bianco magro 250 g", "Cereali integrali 50 g", "1 mela 150 g"] },
+        { "nome": "Spuntino", "alimenti": ["1 kiwi 120 g", "Noci 25 g"] },
+        { "nome": "Pranzo", "alimenti": ["Pane integrale 90 g", "Mozzarella vaccina 125 g", "Pomodori 250 g", "Olio EVO 15 g"] },
+        { "nome": "Merenda", "alimenti": ["Latte parzialmente scremato 250 ml", "1 pera 180 g"] },
+        { "nome": "Cena", "alimenti": ["Riso basmati 70 g", "Ceci cotti 150 g", "Verdure miste 300 g", "Olio EVO 20 g"] }
       ]
     },
     {
       "nome": "Domenica",
       "pasti": [
-        { "nome": "Colazione", "alimenti": ["Yogurt magro", "30 g avena"] },
-        { "nome": "Spuntino", "alimenti": ["Frutto"] },
-        { "nome": "Pranzo", "alimenti": ["2 uova", "40 g pane", "Verdure abbondanti", "15 g EVO"] },
-        { "nome": "Spuntino", "alimenti": ["Yogurt magro"] },
-        { "nome": "Cena", "alimenti": ["100 g formaggio fresco magro", "Verdure abbondanti", "100–150 g patate", "15 g EVO"] }
+        { "nome": "Colazione", "alimenti": ["Latte parzialmente scremato 250 ml", "Pane integrale 100 g", "Confettura 25 g"] },
+        { "nome": "Spuntino", "alimenti": ["1 banana 120 g", "Mandorle 20 g"] },
+        { "nome": "Pranzo", "alimenti": ["Pasta 120 g", "Passata di pomodoro 150 g", "Parmigiano 25 g", "Olio EVO 20 g", "Verdure 250 g"] },
+        { "nome": "Merenda", "alimenti": ["Yogurt greco bianco 0% 170 g", "1 mela 180 g"] },
+        { "nome": "Cena", "alimenti": ["Pane integrale 120 g", "Fiocchi di latte 200 g", "Insalata 300 g", "Olio EVO 20 g"] }
       ]
     }
   ],
